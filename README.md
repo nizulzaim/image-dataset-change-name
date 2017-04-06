@@ -24,5 +24,5 @@ node -e 'require("./index").convertFile()'
 | Arguments     | Default       |
 | ------------- |:-------------:|
 | fileFormat    | ".jpg"        |
-| classNumbe    | 46            |
+| classNumber   | 46            |
 | objectNumber  | 7             |
