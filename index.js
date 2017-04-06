@@ -1,8 +1,6 @@
 var fse = require("fs-extra");
 var fs = require("fs");
 
-const dir = './output'
-var numFile = 7;
 
 function pad(str, max) {
     str = str.toString();
@@ -10,27 +8,28 @@ function pad(str, max) {
 }
 
 module.exports.convertFile = function (fileFormat = ".jpg", classNumber = 46, objNumber = 7) {
-    fse.ensureDir(dir, err => {
+    const outputFolder = './output/'
+    fse.ensureDir(outputFolder, err => {
         if (err) {
             console.log(err) 
             return;
         }
         let inputFolder = './data/';
-        var outputFolder = "./output/"
         let count = 1;
         for (var i = 0; i < classNumber; i++) {
             for (var j = 0; j < objNumber; j++) {
                 let int = (100 + 1 + i);
-                var fileName = int + "_" + (j + 1) + fileFormat;
-                var outputFileName = pad(count, 5) + fileFormat;
+                let fileName = int + "_" + (j + 1) + fileFormat;
+                let outputFileName = pad(count, 5) + fileFormat;
 
                 if (fs.existsSync(inputFolder + fileName)) {
-                    //ENABLE IF TO FOLDER
+                    //ENABLE IF TO CLASSNUMBER FOLDER
                     // fse.copySync(inputFolder + fileName, outputFolder + (i+1) +"/" + outputFileName);
 
                     // ENABLE IF OUTPUT IN ONE FOLDER
                     fse.copySync(inputFolder + fileName, outputFolder + outputFileName);
-                    console.log("createdFile : " + outputFileName);
+
+                    console.log("Created File : " +  outputFolder + outputFileName);
                     count++;
                 } else {
                     console.log("Cannot find file name: " + inputFolder + fileName);
