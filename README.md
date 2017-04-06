@@ -1,4 +1,4 @@
-## What I Do?
+## What Do I Do?
 
 changing filename from 101_1.jpg, 101_2.jpg and so on to 00001.jpg;
 
