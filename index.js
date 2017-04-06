@@ -20,7 +20,7 @@ module.exports.convertFile = function (fileFormat = ".jpg", classNumber = 46, ob
             for (var j = 0; j < objNumber; j++) {
                 let int = (100 + 1 + i);
                 let fileName = int + "_" + (j + 1) + fileFormat;
-                let outputFileName = pad(count, 5) + fileFormat;
+                let outputFileName = "face" +pad(count, 5) + fileFormat;
 
                 if (fs.existsSync(inputFolder + fileName)) {
                     //ENABLE IF TO CLASSNUMBER FOLDER
